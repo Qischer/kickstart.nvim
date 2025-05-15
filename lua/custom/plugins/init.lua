@@ -4,6 +4,7 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    --NOTE: catppuccin theme for nvim
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
@@ -57,6 +58,42 @@ return {
       }
 
       vim.cmd.colorscheme 'catppuccin-mocha'
+    end,
+  },
+
+  -- NOTE: nvim-tmux navigator
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+      'TmuxNavigatorProcessList',
+    },
+    keys = {
+      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+    },
+  },
+
+  -- NOTE : extra support for jdtls
+  {
+    'mfussenegger/nvim-jdtls',
+    dependencies = {
+      'mfussenegger/nvim-dap',
+    },
+  },
+
+  -- NOTE : auto close brackets
+  {
+    'm4xshen/autoclose.nvim',
+    config = function()
+      require('autoclose').setup {}
     end,
   },
 }

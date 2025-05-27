@@ -107,14 +107,6 @@ return {
     end,
   },
 
-  -- NOTE : auto close brackets
-  {
-    'm4xshen/autoclose.nvim',
-    config = function()
-      require('autoclose').setup {}
-    end,
-  },
-
   -- NOTE: better file explorer
   {
     'stevearc/oil.nvim',
@@ -128,7 +120,7 @@ return {
     lazy = false,
     config = function()
       require('oil').setup()
-      vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+      vim.keymap.set('n', '<leader>e', '<CMD>Oil<CR>', { desc = '[E]dit File Tree' })
     end,
   },
 }
